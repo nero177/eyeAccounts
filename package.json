@@ -13,7 +13,7 @@
     "keywords": [],
     "scripts": {
         "dev": "nodemon app.js",
-        "build": "node app"
+        "build": "node app.js"
     },
     "repository": {
         "type": "git",
