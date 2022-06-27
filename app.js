@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 app.use('/userAccount', userAccountRouter);
 app.use('/admin', adminRouter);
 app.use('/', router);
+app.get('/', (req, res) => res.send('sdfsdf'))
 
 
 app.listen(PORT, async() => {

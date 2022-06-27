@@ -6,7 +6,7 @@ const urlencoded = bodyParser.urlencoded({ extended: false });
 const { regValidation, loginValidation } = require('../validationArrays');
 const loadAccountsMw = require('../middlewares/loadAccountsMw');
 
-router.get('/', loadAccountsMw, (req, res) => res.render('index', { accounts: res.locals.accounts }))
+//router.get('/', loadAccountsMw, (req, res) => res.render('index', { accounts: res.locals.accounts }))
 router.get('/reg', (req, res) => res.render('registration'))
 router.get('/login', (req, res) => res.render('login'))
 router.get('/logout', userController.logout);
