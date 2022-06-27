@@ -1,0 +1,196 @@
+.navbar__menu-mob {
+  cursor: pointer;
+}
+.navbar__menu-mob img {
+  max-width: 70px;
+}
+
+.menu-mob {
+  width: 60%;
+  height: 100%;
+  background: #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-mob_close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+@media screen and (min-width: 1300px) {
+  .account-info {
+    width: 100%;
+    max-width: 850px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .xp__bar {
+    width: 100%;
+  }
+  .xp__bar progress {
+    width: 100%;
+  }
+
+  .account-info {
+    width: 90% !important;
+  }
+}
+@media screen and (min-width: 800px) {
+  .navbar__menu-mob {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .navbar__menu-wide {
+    display: none;
+  }
+
+  .account-description {
+    max-height: 110px;
+    overflow-y: auto;
+    max-width: 100px;
+    word-break: break-all;
+  }
+  .account-description::-webkit-scrollbar {
+    width: 0.3em;
+  }
+  .account-description::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+  }
+
+  .account-info {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 750px) {
+  .account-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+    position: relative;
+    padding: 20px !important;
+    border-bottom: 3px solid #512288;
+  }
+
+  .account-item__buy {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+  }
+
+  .account-item__description {
+    padding-right: 0 !important;
+  }
+
+  .account-item__main {
+    padding-bottom: 13px;
+    margin-bottom: 15px;
+  }
+
+  .account-item__price,
+.account-item__amount {
+    font-size: 14px;
+  }
+  .account-item__price span,
+.account-item__amount span {
+    font-size: 12px !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .menu-mob {
+    width: 100%;
+  }
+
+  .form-section {
+    margin: 50px 20px 50px 20px !important;
+  }
+  .form-section form {
+    width: 100% !important;
+  }
+
+  .account-info {
+    -ms-grid-columns: 100% !important;
+    grid-template-columns: 100% !important;
+  }
+
+  .account-settings {
+    -ms-grid-columns: 100% !important;
+    grid-template-columns: 100% !important;
+  }
+
+  .account-settings__main {
+    margin: 15px !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .filter {
+    width: 95% !important;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .filter__social {
+    width: 100% !important;
+  }
+
+  .filter-description {
+    width: 100%;
+    margin: 10px 0 !important;
+  }
+
+  .filter-price {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  .filter-price input {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 350px) {
+  .logo__text {
+    font-size: 14px;
+  }
+
+  .logo img {
+    max-width: 35px !important;
+  }
+
+  .navbar__menu-mob img {
+    max-width: 50px;
+  }
+
+  nav {
+    padding: 5px 10px !important;
+  }
+
+  .account-item__buy {
+    padding: 9px 5px !important;
+    font-size: 12px;
+  }
+
+  .account-item__description {
+    font-size: 12px !important;
+  }
+}

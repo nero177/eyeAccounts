@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "minecraft";
+    src: url("../fonts/minecraft.ttf");
+}
+  
+@font-face {
+    font-family: "Aeroport Light";
+    src: url("../fonts/Aeroport.ttf");
+}
+
+@font-face {
+    font-family: "Aeroport Medium";
+    src: url("../fonts/Aeroport-Medium.ttf");
+}

@@ -1,0 +1,42 @@
+{
+    "name": "project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "devDependencies": {
+        "nodemon": "^2.0.16",
+        "sass": "^1.52.1"
+    },
+    "engines": {
+        "node": "14.x"
+    },
+    "keywords": [],
+    "scripts": {
+        "dev": "nodemon app.js",
+        "build": "node app"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GJayLG/accPlaceWEB.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GJayLG/accPlaceWEB/issues"
+    },
+    "homepage": "https://github.com/GJayLG/accPlaceWEB#readme",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.20.0",
+        "cookie-parser": "^1.4.6",
+        "ejs": "^3.1.8",
+        "express": "^4.18.1",
+        "express-validator": "^6.14.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.3.3",
+        "multer": "^1.4.5-lts.1",
+        "nodemailer": "^6.7.5",
+        "path": "^0.12.7",
+        "uuid": "^8.3.2"
+    }
+}

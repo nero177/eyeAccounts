@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EyeAccounts - Admin</title>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/utils.js"></script>
+    <script src="../js/front.js" defer></script>
+    <script src="../js/adminFront.js" defer></script>
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+</head>
+
+<body>
+    <div class="admin-container">
+        <div class="admin-sidebar">
+            <div class="admin-sidebar__logo">
+                <img src="/img/logo.webp" alt="">
+                <a class="admin-sidebar__logo-text" href="/">EyeAccounts</a>
+            </div>
+            <div class="admin-sidebar__links">
+                <a href="#">Аккаунты</a>
+                <a href="#">Статистика</a>
+            </div>
+
+        </div>
+        <div class="admin-main">
+            <div class="admin-main__options-bar">
+                <div class="admin-main__add-account">Добавить аккаунт</div>
+                <input class="admin-main__search" placeholder="Поиск">
+            </div>
+            <div class="admin-main__accounts">
+                <%
+                    accounts.forEach(element => {
+                     
+                    %>
+                    <div class="account-item" data-social="<%-element.social%>">
+                        <div class="account-item__main">
+                            <div class="account-item__icon"><img src="" alt=""></div>
+                            <div class="account-item__description">
+                                <%-element.description%>
+                            </div>
+                        </div>
+                        <div class="account-item__middle">
+                            <div class="account-item__price"><span>Цена</span><b><%-element.price%> руб</b></div>
+                            <div class="account-item__amount"><span>В наличии</span><b><%-element.amount%>шт.</b></div>
+                        </div>
+                    </div>
+                    <%});
+                %>
+            </div>
+        </div>
+    </div>
+    <div class="add-account-popup hide">
+        <h2>Добавление аккаунта</h2>
+        <div class="add-account-popup__close account-item__delete">x</div>
+        <form action="admin/addAccount" method="post" class="add-account-form">
+            <label for="social-name">Социальная сеть</label>
+            <select name="social-name" id="">
+                <option value="telegram">Telegram</option>
+                <option value="facebook">Facebook</option>
+            </select>
+            <label for="account-description">Описание аккаунта</label>
+            <textarea name="account-description" id="account-description" cols="30" rows="10"></textarea>
+            <label for="price">Цена</label>
+            <input type="text" name="price">
+            <label>Кол-во: <b id="accounts-count">0</b></label>
+            <label for="account-data">Данные аккаунта</label>
+            <textarea name="account-data" id="account-data" cols="30" rows="2"></textarea>
+            <input type="button" value="Добавить еще" id="account-data-addmore">
+            <input type="submit" value="Добавить аккаунт">
+
+            <input type="hidden" name="accounts-data-hidden" value="" id="accounts-data-hidden">
+            <input type="hidden" name="accounts-count-hidden" value="" id="accounts-count-hidden">
+        </form>
+    </div>
+
+</body>
+
+</html>

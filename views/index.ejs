@@ -1,0 +1,107 @@
+<%- include('./header'); %>
+    <script src="../js/filter.js" defer></script>
+    <section>
+        <div class="filter">
+            <div class="filter-clear">
+                Сброс
+            </div>
+            <div class="filter__social">
+                <span>Социальная сеть</span>
+                <div class="filter__social-list">
+                    <div class="filter__social-item" data-filter-social="telegram">
+                        <img src="../img/icons/telegram-icon.png" alt="Telegram аккаунты">
+                        <span>Telegram</span>
+                    </div>
+                    <div class="filter__social-item" data-filter-social="facebook">
+                        <img src="../img/icons/facebook.png" alt="Telegram аккаунты">
+                        <span>Facebook</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="filter-description">
+                <label for="filter-description">Описание</label>
+                <textarea id="filter-description"></textarea>
+            </div>
+            <div class="filter-price">
+                <label for="">Цена</label>
+                <div class="range-num">До 10000 руб</div>
+                <input type="range" min="1" max="10000" value="10000" id="filter-price-range">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="acc-category-section" data-filter-social="telegram">
+            <div class="acc-category-section__info">
+                <h2>Telegram</h2>
+                <div class="acc-category-section__logo">
+                    <img src="../img/icons/telegram-icon.png" alt="Telegram аккаунты">
+                </div>
+            </div>
+
+            <div class="acc-category-section__accounts">
+                <%
+                    accounts.forEach(element => {
+                        if(element.social != 'telegram'){
+                            return;
+                        }
+                    %>
+                    <div class="account-item" data-social="<%-element.social%>">
+                        <div class="account-item__main">
+                            <div class="account-item__icon"><img src="img/icons/facebook.png" alt="Facebook аккаунты"></div>
+                            <div class="account-item__description">
+                                <%-element.description%>
+                            </div>
+                        </div>
+                        <div class="account-item__middle">
+                            <div class="account-item__price"><span>Цена</span><b><%-element.price%>  руб</b></div>
+                            <div class="account-item__amount"><span>В наличии</span><b><%-element.amount%> шт.</b></div>
+                            <div class="account-item__buy">Купить <b>></b></div>
+                        </div>
+                    </div>
+
+                    <%});
+                %>
+
+
+            </div>
+        </div>
+        <div class="acc-category-section" data-filter-social="facebook">
+            <div class="acc-category-section__info">
+                <h2>Facebook</h2>
+                <div class="acc-category-section__logo">
+                    <img src="../img/icons/facebook.png" alt="Facebook аккаунты">
+                </div>
+            </div>
+
+            <div class="acc-category-section__accounts">
+                <%  
+                    accounts.forEach(element => {
+                        console.log(element)
+                        if(element.social != 'facebook'){
+                            return;
+                        }
+                    %>
+                    <div class="account-item" data-social="<%-element.social%>">
+                        <div class="account-item__main">
+                            <div class="account-item__icon"><img src="img/icons/facebook.png" alt="Facebook аккаунты"></div>
+                            <div class="account-item__description">
+                                <%-element.description%>
+                            </div>
+                        </div>
+                        <div class="account-item__middle">
+                            <div class="account-item__price"><span>Цена</span><b><%-element.price%>  руб</b></div>
+                            <div class="account-item__amount"><span>В наличии</span><b><%-element.amount%> шт.</b></div>
+                            <div class="account-item__buy">Купить <b>></b></div>
+                        </div>
+                    </div>
+
+                    <%});
+                %>
+
+
+            </div>
+        </div>
+
+    </section>
+    <%- include('./footer'); %>

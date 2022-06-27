@@ -1,0 +1,21 @@
+<%- include('./header'); %>
+
+    <section class="form-section">
+        <form action="login" method="post">
+            <div class="form-section__inputs">
+                <% if (locals.error) { %>
+                    <div class="error-message">
+                        <%=error%>
+                    </div>
+                    <%}%>
+                        <label for="">Логин</label>
+                        <input type="text" name="login" autocomplete="off" minlength="2">
+                        <label for="">Пароль</label>
+                        <input type="password" name="password" autocomplete="off" minlength="8">
+                        <input type="submit" value="Войти">
+
+            </div>
+            <a href="/reg">Зарегистрироваться</a>
+        </form>
+    </section>
+    <%- include('./footer'); %>
