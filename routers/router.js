@@ -11,7 +11,7 @@ router.get('/reg', (req, res) => res.render('registration'))
 router.get('/login', (req, res) => res.render('login'))
 router.get('/logout', userController.logout);
 router.get('/oplata', (req, res) => res.render('oplata'))
-router.get('*', (req, res) => res.render('404'));
+    //router.get('*', (req, res) => res.render('404'));
 
 
 router.post('/reg', regValidation, urlencoded, userController.registration)
