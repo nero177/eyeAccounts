@@ -470,12 +470,61 @@ nav {
   padding: 7px;
 }
 
+/* Footer */
 footer {
-  background: #000;
-  padding: 40px 20px;
   color: #fff;
   font-family: "Aeroport Light";
   margin-top: 80px;
+  z-index: 1;
+  position: relative;
+  background:#202020;
+  padding:70px 0 80px;
+}
+
+.footer_menu li a:hover{
+  color:#fff;
+  }
+.footer_menu li a{
+color:#5f5f5f;
+transition:all 0.3s ease;
+text-decoration:none;
+}
+.footer_menu ul {
+  cursor: default;
+  text-align:center;
+}
+.footer_menu li {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  margin: 15px 25px 15px 0;
+}
+
+.footer_contacts {
+  color: #5f5f5f;
+  line-height: 30px;
+}
+
+.footer_contacts div:nth-child(1) {
+  float: left;
+}
+
+.footer_contacts div:nth-child(2) {
+  float: right;
+}
+
+.footer_contacts span {
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.footer_cent {
+  float:center;
+  width:754px;
+  font-size:12px;
+  color:#606060;
+  font-family:'Open Sans', sans-serif;
+  line-height:20px;
 }
 
 .footer_content {
