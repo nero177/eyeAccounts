@@ -1,6 +1,4 @@
 const adminService = require('../services/AdminService');
-const path = require('path');
-const fs = require('fs');
 
 class AdminController {
     async login(req, res) {
@@ -9,20 +7,6 @@ class AdminController {
 
         if (!admin)
             return res.json({ message: 'admin auth error' });
-
-        fs.writeFile(path.resolve(process.cwd(), 'isAdminAuthorized.txt'), req.ip, function(err) {
-            if (err) {
-                return res.json({ err })
-            }
-
-            setTimeout(() => {
-                    fs.unlink(path.resolve(process.cwd(), 'isAdminAuthorizated.txt'), err => {
-                        if (err)
-                            console.log('deleting file error');
-                    });
-                }, 1 * 60 * 60 * 1000) //delete after one hour
-        });
-
 
         res.redirect('/admin');
     }
