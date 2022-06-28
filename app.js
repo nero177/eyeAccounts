@@ -17,7 +17,7 @@ app.use('/', router);
 
 
 app.listen(PORT, async() => {
-    console.log('Bound to port 3000');
+    console.log(`Bound to port ${PORT}`);
     try {
         return await mongoose.connect(config.mongoDBUrl)
     } catch (err) {
