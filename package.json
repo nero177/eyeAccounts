@@ -12,8 +12,8 @@
     },
     "keywords": [],
     "scripts": {
-        "dev": "nodemon app.js",
-        "build": "node app.js"
+        "dev": "nodemon server.js",
+        "build": "node server.js"
     },
     "repository": {
         "type": "git",
