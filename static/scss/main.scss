@@ -384,11 +384,87 @@ nav {
 }
 
 footer {
-    background: #000;
-    padding: 40px 20px;
-    color: #fff;
     font-family: "Aeroport Light";
     margin-top: 80px;
+    position: relative;
+    background-image: url('../img/TheEnd.webp');
+    background-size: cover;
+    padding: 50px;
+    color: #fff;
+}
+
+.footer_menu li a {
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    color: $links_green;
+    &:hover {
+        color: #fff;
+    }
+}
+
+.footer_menu ul {
+    display: flex;
+    justify-content: center;
+}
+
+.footer_menu li {
+    list-style-type: none;
+    margin: 15px 25px 15px 0;
+}
+
+.footer_contacts {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    img {
+        max-width: 20px;
+    }
+}
+
+.footer_contacts__item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 20px;
+    color: #fff;
+    transition: .5s all;
+    &:hover {
+        background-color: rgb(45, 4, 53);
+    }
+}
+
+.footer_contacts span {
+    margin-left: 5px;
+}
+
+.footer_cent {
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(206, 206, 206);
+    background-color: #000;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.footer_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'minecraft';
+    font-size: 20px;
+    color: $links_green;
+    img {
+        margin-right: 10px;
+        max-width: 45px;
+        transition: 1s all;
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
 }
 
 .footer_content {
