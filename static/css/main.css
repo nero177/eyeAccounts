@@ -73,7 +73,6 @@ nav {
   font-weight: 700;
 }
 .navbar__menu a {
-  color: #fff;
   margin-right: 20px;
   color: #88c35a;
   padding: 10px;
@@ -526,7 +525,7 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 20px;
-  background-color: #000;
+  background-color: #1e0d31;
   padding: 10px;
   border-radius: 20px;
   color: #fff;
@@ -534,7 +533,7 @@ footer {
   transition: 0.5s all;
 }
 .footer_contacts__item:hover {
-  background-color: #2d0435;
+  background-color: #26113f;
 }
 
 .footer_contacts span {
@@ -545,7 +544,7 @@ footer {
   font-size: 12px;
   font-family: "Open Sans", sans-serif;
   color: #cecece;
-  background-color: #000;
+  background-color: #1e0d31;
   display: inline-block;
   padding: 10px;
   border-radius: 20px;

@@ -56,7 +56,6 @@ nav {
     align-items: center;
     font-weight: 700;
     a {
-        color: #fff;
         margin-right: 20px;
         color: $links_green;
         padding: 10px;
@@ -426,13 +425,13 @@ footer {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    background-color: #000;
+    background-color: $purple-bg;
     padding: 10px;
     border-radius: 20px;
     color: #fff;
     transition: .5s all;
     &:hover {
-        background-color: rgb(45, 4, 53);
+        background-color: $purple-bg-hovered;
     }
 }
 
@@ -444,7 +443,7 @@ footer {
     font-size: 12px;
     font-family: 'Open Sans', sans-serif;
     color: rgb(206, 206, 206);
-    background-color: #000;
+    background-color: $purple-bg;
     display: inline-block;
     padding: 10px;
     border-radius: 20px;
