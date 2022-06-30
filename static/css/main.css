@@ -90,6 +90,25 @@ nav {
   color: #94e05b;
 }
 
+.user-img {
+  height:45px;
+  width:45px;
+  border-radius:100%;
+  box-shadow:-1px 0px 0px 3px #512288,0px 0px 0px 3px #a009eb;
+  margin-right:20px;
+ }
+
+.plus-ico{
+  height:25px;
+  width:25px;
+  position: relative;
+}
+
+.user-profile span{
+  left: 10px;
+}
+
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
