@@ -6,6 +6,7 @@ module.exports = async function(req, res, next) {
         const userAvatarFilename = await fileService.loadAvatar(userData.id);
 
         res.render('userAccount', { userData, userAvatarFilename });
+        //res.json({ userData, userAvatarFilename });
     } catch (err) {
         console.log(err);
         return res.redirect('/login')

@@ -27,6 +27,13 @@
       -ms-flex-align: center;
           align-items: center;
 }
+.menu-mob a {
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+.menu-mob a:hover {
+  color: #7b24cc;
+}
 
 .menu-mob_close {
   position: absolute;
@@ -142,6 +149,35 @@
 
   .account-settings__main {
     margin: 15px !important;
+  }
+
+  .footer_menu ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer_menu ul li {
+    margin: 5px 0;
+  }
+
+  .footer_contacts {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 20px;
+  }
+
+  .footer_contacts__item {
+    margin-bottom: 5px;
+  }
+
+  .user-profile {
+    display: none !important;
   }
 }
 @media screen and (max-width: 700px) {

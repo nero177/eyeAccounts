@@ -57,18 +57,18 @@ nav {
     font-weight: 700;
     a {
         margin-right: 20px;
-        color: $links_green;
+        color: #a200fb;
         padding: 10px;
         border-radius: 15px;
         transition: .3s all;
         font-family: "Aeroport Light";
         &:hover {
-            background-color: #262e1f;
-            color: $links_active_green;
+            background-color: #4a0b6c;
+            color: #aa1af7;
         }
         &:focus {
-            background-color: #506b39;
-            color: $links_active_green;
+            background-color: #4a0b6c;
+            color: #aa1af7;
         }
     }
 }
@@ -93,6 +93,47 @@ nav {
     }
 }
 
+.user-profile {
+    display: flex;
+    align-items: center;
+    a {
+        margin-right: 0 !important;
+        border-radius: 50%;
+        &:hover {
+            background-color: initial;
+        }
+    }
+}
+
+.user-img {
+    height: 55px;
+    width: 55px;
+    border-radius: 100%;
+    background: linear-gradient(360deg, #5a00fb, #a700fb);
+    padding: 4px;
+}
+
+.user-balance-container {
+    display: flex;
+    align-items: center;
+    background: $purple-bg;
+    padding: 5px;
+    border-radius: 20px;
+    a {
+        padding: 0;
+        display: flex;
+    }
+}
+
+.plus-ico {
+    width: 20px;
+    margin-left: 5px;
+}
+
+.user-profile span {
+    left: 10px;
+}
+
 
 /*MAIN ACCOUNTS SECTION*/
 
@@ -111,13 +152,13 @@ nav {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: $btn-purple;
+    background: $btn-gradient;
     border-radius: 15px;
     padding: 5px;
     cursor: pointer;
     transition: .5s background-color;
     &:hover {
-        background-color: $btn-purple-active;
+        background: $btn-gradient-active;
     }
 }
 
@@ -206,7 +247,7 @@ nav {
             transition: .5s all;
             cursor: pointer;
             &:hover {
-                box-shadow: 0 0 8px 0 #7e1aef;
+                box-shadow: 0 0 8px 3px #7e1aef;
             }
         }
     }
@@ -239,7 +280,7 @@ nav {
     width: 95%;
     border-radius: 20px;
     margin: 0 auto;
-    background-color: #1e0d31;
+    background: #1e0d31;
     margin-top: -10px;
     color: #fff;
 }
@@ -290,17 +331,16 @@ nav {
 }
 
 .account-item__buy {
-    background-color: $btn-purple;
+    background: $btn-gradient;
     border-radius: 20px;
     display: flex;
     padding: 9px 20px;
-    transition: .5s background-color;
     cursor: pointer;
     b {
         margin-left: 5px;
     }
     &:hover {
-        background-color: $btn-purple-active;
+        background: $btn-gradient-active;
     }
 }
 
@@ -396,7 +436,7 @@ footer {
     transition: all 0.3s ease;
     text-decoration: none;
     font-weight: bold;
-    color: $links_green;
+    color: #aa1af7;
     &:hover {
         color: #fff;
     }

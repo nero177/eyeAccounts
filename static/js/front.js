@@ -6,6 +6,11 @@ try {
     s('.navbar__menu-mob img').onclick = () => {
         s('.menu-mob').show();
     }
+
+    axios.get(`${document.location.origin}/userAccount`)
+        .then(response => console.log(response))
+
+    console.log(`${document.location.origin}/userAccount`)
 } catch (e) {
     c(e)
 }

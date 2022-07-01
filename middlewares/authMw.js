@@ -17,6 +17,7 @@ module.exports = async function(req, res, next) {
         }
 
         res.locals.userData = decodedData;
+
         next();
     } catch (err) {
         return res.redirect('/login')

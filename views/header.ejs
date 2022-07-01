@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/front.js" defer></script>
+    <meta name="enot" content="92416566157524Hi3jKASUbe_e69YpE5bOLA248NOm3cN" />
 </head>
 
 <body>
@@ -37,32 +39,36 @@
                 <div class="navbar__menu-wide">
                     <a href="/">Главная</a>
                     <a href="/#accounts">Аккаунты</a>
-                    
-                </div class="user-profile">
+                </div>
+                <div class="user-profile">
                     <a href="/userAccount" target="_blank">
-                        <img class="user-img" src="../img/default-avatar.jpeg"/>
+                        <img class="user-img" src="../img/default-avatar.jpeg" />
                     </a>
+                    <div class="user-balance-container">
+                        <b class="user-balance">0</b>
+                        <a href="#">
+                            <img class="plus-ico" src="../img/icons/plus-icon.png" />
 
-                    <b class="user-balance"></b>
-                    <span>0</span>
-                    <img class="plus-ico" src="../img/icons/plus-icon.png"/>
+                        </a>
 
-                </div>
-                    
-
-                </div>
-                <div class="navbar__menu-mob">
-                    <img src="../img/icons/burger.png" alt="">
-                    <div class="menu-mob hide">
-                        <div class="menu-mob_close">
-                            Вернуться
-                        </div>
-                        <a href="/">Главная</a>
-                        <a href="#accounts">Аккаунты</a>
-                        <a href="/userAccount">Личный кабинет</a>
-                        <a href="#">О нас</a>
                     </div>
+
                 </div>
+
+
+            </div>
+            <div class="navbar__menu-mob">
+                <img src="../img/icons/burger.png" alt="">
+                <div class="menu-mob hide">
+                    <div class="menu-mob_close">
+                        Вернуться
+                    </div>
+                    <a href="/">Главная</a>
+                    <a href="#accounts">Аккаунты</a>
+                    <a href="/userAccount">Личный кабинет</a>
+                    <a href="#">О нас</a>
+                </div>
+            </div>
             </div>
         </nav>
     </header>

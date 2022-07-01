@@ -18,6 +18,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    a {
+        transition: .5s all;
+        &:hover {
+            color: #7b24cc;
+        }
+    }
 }
 
 .menu-mob_close {
@@ -120,6 +126,23 @@
     }
     .account-settings__main {
         margin: 15px !important;
+    }
+    .footer_menu ul {
+        flex-direction: column;
+        li {
+            margin: 5px 0;
+        }
+    }
+    .footer_contacts {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .footer_contacts__item {
+        margin-bottom: 5px;
+    }
+    .user-profile {
+        display: none !important;
     }
 }
 

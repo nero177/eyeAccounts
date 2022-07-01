@@ -74,7 +74,7 @@ nav {
 }
 .navbar__menu a {
   margin-right: 20px;
-  color: #88c35a;
+  color: #a200fb;
   padding: 10px;
   border-radius: 15px;
   -webkit-transition: 0.3s all;
@@ -82,32 +82,13 @@ nav {
   font-family: "Aeroport Light";
 }
 .navbar__menu a:hover {
-  background-color: #262e1f;
-  color: #94e05b;
+  background-color: #4a0b6c;
+  color: #aa1af7;
 }
 .navbar__menu a:focus {
-  background-color: #506b39;
-  color: #94e05b;
+  background-color: #4a0b6c;
+  color: #aa1af7;
 }
-
-.user-img {
-  height:45px;
-  width:45px;
-  border-radius:100%;
-  box-shadow:-1px 0px 0px 3px #512288,0px 0px 0px 3px #a009eb;
-  margin-right:20px;
- }
-
-.plus-ico{
-  height:25px;
-  width:25px;
-  position: relative;
-}
-
-.user-profile span{
-  left: 10px;
-}
-
 
 .logo {
   display: -webkit-box;
@@ -136,6 +117,58 @@ nav {
   color: #94e05b;
 }
 
+.user-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.user-profile a {
+  margin-right: 0 !important;
+  border-radius: 50%;
+}
+.user-profile a:hover {
+  background-color: initial;
+}
+
+.user-img {
+  height: 55px;
+  width: 55px;
+  border-radius: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#5a00fb), to(#a700fb));
+  background: linear-gradient(360deg, #5a00fb, #a700fb);
+  padding: 4px;
+}
+
+.user-balance-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1e0d31;
+  padding: 5px;
+  border-radius: 20px;
+}
+.user-balance-container a {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.plus-ico {
+  width: 20px;
+  margin-left: 5px;
+}
+
+.user-profile span {
+  left: 10px;
+}
+
 /*MAIN ACCOUNTS SECTION*/
 .filter {
   background-color: #1e0d31;
@@ -156,7 +189,8 @@ nav {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #512288;
+  background: -webkit-gradient(linear, left bottom, left top, from(#4700c5), to(#8104c0));
+  background: linear-gradient(360deg, #4700c5, #8104c0);
   border-radius: 15px;
   padding: 5px;
   cursor: pointer;
@@ -164,7 +198,8 @@ nav {
   transition: 0.5s background-color;
 }
 .filter-clear:hover {
-  background-color: #7425ce;
+  background: -webkit-gradient(linear, left bottom, left top, from(#5203da), to(#9204da));
+  background: linear-gradient(360deg, #5203da, #9204da);
 }
 
 .filter__social {
@@ -270,8 +305,8 @@ nav {
   cursor: pointer;
 }
 .filter-price input::-webkit-slider-thumb:hover {
-  -webkit-box-shadow: 0 0 8px 0 #7e1aef;
-          box-shadow: 0 0 8px 0 #7e1aef;
+  -webkit-box-shadow: 0 0 8px 3px #7e1aef;
+          box-shadow: 0 0 8px 3px #7e1aef;
 }
 
 .acc-category-section {
@@ -308,7 +343,7 @@ nav {
   width: 95%;
   border-radius: 20px;
   margin: 0 auto;
-  background-color: #1e0d31;
+  background: #1e0d31;
   margin-top: -10px;
   color: #fff;
 }
@@ -372,21 +407,21 @@ nav {
 }
 
 .account-item__buy {
-  background-color: #512288;
+  background: -webkit-gradient(linear, left bottom, left top, from(#4700c5), to(#8104c0));
+  background: linear-gradient(360deg, #4700c5, #8104c0);
   border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 9px 20px;
-  -webkit-transition: 0.5s background-color;
-  transition: 0.5s background-color;
   cursor: pointer;
 }
 .account-item__buy b {
   margin-left: 5px;
 }
 .account-item__buy:hover {
-  background-color: #7425ce;
+  background: -webkit-gradient(linear, left bottom, left top, from(#5203da), to(#9204da));
+  background: linear-gradient(360deg, #5203da, #9204da);
 }
 
 .acc-category__price {
@@ -503,7 +538,7 @@ footer {
   transition: all 0.3s ease;
   text-decoration: none;
   font-weight: bold;
-  color: #88c35a;
+  color: #aa1af7;
 }
 .footer_menu li a:hover {
   color: #fff;
