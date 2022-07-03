@@ -1,4 +1,6 @@
 <%- include('./header'); %>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/generatePayForm.js" defer></script>
     <script src="../js/filter.js" defer></script>
     <section>
         <div class="filter">
@@ -30,6 +32,21 @@
             </div>
         </div>
     </section>
+    <div class="pay-form-wrapper hide">
+        <div class="pay-form">
+            <form action='https://payok.io/pay' method='POST'>
+                <input type='hidden' name='amount' value="">
+                <input type='hidden' name='payment' value="">
+                <input type='hidden' name='shop' value="1935">
+                <input type='hidden' name='desc' value="">
+                <input name='email' value=''>
+                <input type='hidden' name='method' value='card'>
+                <input type='hidden' name='sign' value="">
+
+                <input type='submit' value='Купить'>
+            </form>
+        </div>
+    </div>
     <section>
         <div class="acc-category-section" data-filter-social="telegram">
             <div class="acc-category-section__info">
@@ -66,6 +83,8 @@
 
             </div>
         </div>
+
+
         <div class="acc-category-section" data-filter-social="facebook">
             <div class="acc-category-section__info">
                 <h2>Facebook</h2>

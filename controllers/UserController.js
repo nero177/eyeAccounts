@@ -58,6 +58,11 @@ class UserController {
         res.clearCookie('token');
         res.redirect('/login')
     }
+
+    async getUserAvatar(req, res) {
+        const userAvatar = await userService.getUserAvatar(res.locals.userData.id)
+        return res.json({ userAvatar })
+    }
 }
 
 module.exports = new UserController();

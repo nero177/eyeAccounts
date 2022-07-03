@@ -1,4 +1,5 @@
 const tokenService = require('../services/TokenService')
+const fileService = require('../services/FileService');
 
 module.exports = async function(req, res, next) {
     try {
@@ -17,7 +18,6 @@ module.exports = async function(req, res, next) {
         }
 
         res.locals.userData = decodedData;
-
         next();
     } catch (err) {
         return res.redirect('/login')
