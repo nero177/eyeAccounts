@@ -1,16 +1,6 @@
 const adminService = require('../services/AdminService');
 
 class AdminController {
-    async login(req, res) {
-        const { login, password } = req.body;
-        const admin = await adminService.login(login, password);
-
-        if (!admin)
-            return res.json({ message: 'admin auth error' });
-
-        res.redirect('/admin');
-    }
-
     async addAccount(req, res) {
         const accInfo = {
             social: req.body['social-name'],

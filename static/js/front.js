@@ -7,10 +7,17 @@ try {
         s('.menu-mob').show();
     }
 
-    axios.get(`${document.location.origin}/userAccount`)
-        .then(response => console.log(response))
+    axios.get(`${document.location.origin}/userAccount/userAvatar`)
+        .then(response => {
+            const userAvatarNode = document.querySelector('.user-img');
 
-    console.log(`${document.location.origin}/userAccount`)
+            if (!response.data.userAvatar) {
+                return;
+            }
+
+            userAvatarNode.setAttribute('src', response.data.userAvatar)
+        })
+
 } catch (e) {
     c(e)
 }

@@ -3,6 +3,7 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const UserDto = require('../dtos/UserDto');
 const tokenService = require('./TokenService');
+const fileService = require('./FileService');
 
 class UserService {
     async registration(login, email, password) {
@@ -73,7 +74,10 @@ class UserService {
             return null;
         }
     }
-
+    async getUserAvatar(userID) {
+        const userAvatar = await fileService.loadAvatar(userID)
+        return userAvatar;
+    }
 }
 
 module.exports = new UserService();

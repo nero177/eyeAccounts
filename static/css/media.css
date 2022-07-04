@@ -175,10 +175,6 @@
   .footer_contacts__item {
     margin-bottom: 5px;
   }
-
-  .user-profile {
-    display: none !important;
-  }
 }
 @media screen and (max-width: 700px) {
   .filter {
@@ -202,6 +198,10 @@
   }
   .filter-price input {
     width: 100% !important;
+  }
+
+  .user-profile {
+    display: none !important;
   }
 }
 @media screen and (max-width: 350px) {
