@@ -18,7 +18,7 @@ class ApiController {
         ];
 
         const sign = md5(signParameters.join('|'));
-        return res.json({ description: account.description, price: account.price, payment, sign });
+        return res.json({ description: account.description, price: account.price, payment, sign, currency: 'RUB' });
     }
 }
 

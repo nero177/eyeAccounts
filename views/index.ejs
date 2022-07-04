@@ -34,16 +34,27 @@
     </section>
     <div class="pay-form-wrapper hide">
         <div class="pay-form">
+            <div class="popup-close"><img src="../img/icons/closebtn.png" alt=""></div>
+
             <form action='https://payok.io/pay' method='POST'>
                 <input type='hidden' name='amount' value="">
                 <input type='hidden' name='payment' value="">
                 <input type='hidden' name='shop' value="1935">
+                <input type='hidden' name='currency' value="">
                 <input type='hidden' name='desc' value="">
-                <input name='email' value=''>
+                <input type='hidden' name='email' value="edsfds3223@gmail.com">
                 <input type='hidden' name='method' value='card'>
                 <input type='hidden' name='sign' value="">
+                <div class="input-label">
+                    <label for="mail">Ваш email</label>
+                    <input class="input-default text-input" type="text" name="mail">
+                </div>
+                <div class="input-label">
+                    <label for="mail">Ваше имя</label>
+                    <input class="input-default text-input" type="text" name="name">
+                </div>
 
-                <input type='submit' value='Купить'>
+                <input class="input-default submit-input" type='submit' value='Перейти к оплате'>
             </form>
         </div>
     </div>
@@ -73,7 +84,7 @@
                         <div class="account-item__middle">
                             <div class="account-item__price"><span>Цена</span><b><%-element.price%>  руб</b></div>
                             <div class="account-item__amount"><span>В наличии</span><b><%-element.amount%> шт.</b></div>
-                            <div class="account-item__buy">Купить <b>></b></div>
+                            <div class="account-item__buy">Купить</div>
                         </div>
                     </div>
 
@@ -110,7 +121,7 @@
                         <div class="account-item__middle">
                             <div class="account-item__price"><span>Цена</span><b><%-element.price%>  руб</b></div>
                             <div class="account-item__amount"><span>В наличии</span><b><%-element.amount%> шт.</b></div>
-                            <div class="account-item__buy">Купить <b>></b></div>
+                            <div class="account-item__buy">Купить</div>
                         </div>
                     </div>
 

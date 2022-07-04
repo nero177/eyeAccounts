@@ -458,7 +458,17 @@ nav {
   text-decoration: underline;
   color: #512288;
 }
-.form-section input {
+.form-section input[type=submit] {
+  background-color: #512288;
+  color: #fff;
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 700;
+}
+
+.input-default {
   border-radius: 5px;
   border: 1px solid #9d9d9d;
   font-size: 1rem;
@@ -469,23 +479,28 @@ nav {
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   height: 40px;
+  font-family: "Aeroport light";
 }
-.form-section input[type=submit] {
-  background-color: #512288;
-  color: #fff;
-  cursor: pointer;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  font-weight: 700;
-}
-.form-section input[type=text]:focus {
+
+.text-input:focus {
   outline: 3px solid #512288 !important;
   border: none;
 }
-.form-section input[type=text]:hover {
+.text-input:hover {
   outline: 3px solid #a1a1a1;
   border: none;
+}
+
+.submit-input {
+  border: 0;
+  padding: 0 20px;
+  background: linear-gradient(45deg, #512288, #5d03c5);
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+  color: #fff;
+}
+.submit-input:hover {
+  background: linear-gradient(45deg, #6229a4, #6b02e4);
 }
 
 .form-section__inputs {
@@ -1134,10 +1149,11 @@ footer {
 }
 
 .pay-form {
+  position: relative;
   width: 40%;
   height: 40%;
   background-color: #fff;
-  border-radius: 30px;
+  border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1147,4 +1163,24 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.popup-close {
+  position: absolute;
+  cursor: pointer;
+  top: 7px;
+  right: 7px;
+}
+.popup-close img {
+  width: 35px;
+}
+
+.input-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }

@@ -16,7 +16,11 @@ try {
             }
 
             userAvatarNode.setAttribute('src', response.data.userAvatar)
-        })
+        });
+
+    document.querySelector('.popup-close').onclick = () => {
+        document.querySelector('.pay-form-wrapper').fadeHide(0.3);
+    }
 
 } catch (e) {
     c(e)

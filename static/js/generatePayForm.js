@@ -25,4 +25,5 @@ async function generatePayForm(element) {
     document.querySelector('.pay-form input[name=desc]').value = res.data.description;
     document.querySelector('.pay-form input[name=payment]').value = res.data.payment;
     document.querySelector('.pay-form input[name=sign]').value = res.data.sign;
+    document.querySelector('.pay-form input[name=currency]').value = res.data.currency;
 }

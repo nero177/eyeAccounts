@@ -376,17 +376,6 @@ nav {
             color: $btn-purple;
         }
     }
-    input {
-        border-radius: 5px;
-        border: 1px solid rgb(157, 157, 157);
-        font-size: 1rem;
-        padding: 4px 8px;
-        line-height: 1.8rem;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        transition: .3s all;
-        height: 40px;
-    }
     input[type=submit] {
         background-color: $btn-purple;
         color: #fff;
@@ -394,13 +383,40 @@ nav {
         width: fit-content;
         font-weight: 700;
     }
-    input[type=text]:focus {
+}
+
+.input-default {
+    border-radius: 5px;
+    border: 1px solid rgb(157, 157, 157);
+    font-size: 1rem;
+    padding: 4px 8px;
+    line-height: 1.8rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    transition: .3s all;
+    height: 40px;
+    font-family: "Aeroport light";
+}
+
+.text-input {
+    &:focus {
         outline: 3px solid $btn-purple !important;
         border: none;
     }
-    input[type=text]:hover {
+    &:hover {
         outline: 3px solid rgb(161, 161, 161);
         border: none;
+    }
+}
+
+.submit-input {
+    border: 0;
+    padding: 0 20px;
+    background: linear-gradient(45deg, #512288, #5d03c5);
+    transition: background .5s;
+    color: #fff;
+    &:hover {
+        background: linear-gradient(45deg, #6229a4, #6b02e4);
     }
 }
 
@@ -922,11 +938,27 @@ footer {
 }
 
 .pay-form {
+    position: relative;
     width: 40%;
     height: 40%;
     background-color: #fff;
-    border-radius: 30px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.popup-close {
+    position: absolute;
+    cursor: pointer;
+    img {
+        width: 35px;
+    }
+    top: 7px;
+    right: 7px;
+}
+
+.input-label {
+    display: flex;
+    flex-direction: column;
 }

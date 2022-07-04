@@ -1,3 +1,7 @@
+/*
+    Front-end utils by nero177
+*/
+
 function s(selector) {
     return document.querySelector(selector);
 }
@@ -15,12 +19,19 @@ Object.prototype.hide = function() {
 }
 
 Object.prototype.show = function() {
+    this.style = ''
     this.classList.remove('hide');
 }
 
 Object.prototype.fadeHide = function(fadeDuration = 0.5) {
     this.style.transition = `${fadeDuration}s opacity`;
     this.style.opacity = 0;
+
+    const hide = new Function('this.hide()').bind(this)
+
+    setTimeout(function() {
+        hide();
+    }, fadeDuration * 1000)
 }
 
 Object.prototype.nullStyles = function() {
