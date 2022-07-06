@@ -27,9 +27,9 @@ const allDescriptions = sAll('.account-item__description');
 
 filterDescription.oninput = function(e) {
     allDescriptions.forEach(el => {
-        const description = el.innerHTML.trim();
+        const description = el.innerHTML.trim().toLowerCase();
 
-        if (!description.includes(e.target.value)) {
+        if (!description.includes(e.target.value.toLowerCase())) {
             el.parentElement.parentElement.hide();
         } else {
             el.parentElement.parentElement.show();

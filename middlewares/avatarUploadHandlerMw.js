@@ -1,4 +1,6 @@
 const Avatar = require('../models/Avatar');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = async function(req, res, next) {
     if (!req.file)
@@ -11,9 +13,13 @@ module.exports = async function(req, res, next) {
         if (isAlreadyUploaded)
             await Avatar.deleteMany({ avatarUserId: userData.id })
 
-        await Avatar.create({
+        const newAvatar = await Avatar.create({
             name: req.file.filename,
-            avatarUserId: userData.id
+            avatarUserId: userData.id,
+            img: {
+                data: fs.readFileSync(path.resolve(process.cwd(), 'tmp', req.file.filename)),
+                contentType: 'image/png'
+            }
         });
 
         res.redirect('/userAccount')

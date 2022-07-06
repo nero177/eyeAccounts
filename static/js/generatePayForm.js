@@ -7,23 +7,20 @@ document.querySelectorAll('.account-item__buy').forEach(button => {
     }
 })
 
+let res;
 
 async function generatePayForm(element) {
     const accountDescription = element.parentElement.parentElement.querySelector('.account-item__description').innerHTML.trim();
-    const shopId = document.querySelector('.pay-form input[name=shop]').value;
 
-    let res = await axios.get('http://localhost:3000/api/getAccount', {
+    res = await axios.get(`${location.href}api/getAccount`, { //get query to accounts api 
         params: {
             description: accountDescription,
-            shop: shopId,
         }
     });
 
     if (!res.data) return null;
 
-    document.querySelector('.pay-form input[name=amount]').value = parseInt(res.data.price);
-    document.querySelector('.pay-form input[name=desc]').value = res.data.description;
-    document.querySelector('.pay-form input[name=payment]').value = res.data.payment;
-    document.querySelector('.pay-form input[name=sign]').value = res.data.sign;
-    document.querySelector('.pay-form input[name=currency]').value = res.data.currency;
+    document.querySelector('.freekassa-payform input[name=oa]').value = parseInt(res.data.price);
+    document.querySelector('.freekassa-payform input[name=o]').value = res.data.orderID;
+    document.querySelector('.freekassa-payform input[name=s]').value = res.data.sign;
 }

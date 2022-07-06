@@ -58,6 +58,11 @@
   .account-info {
     width: 90% !important;
   }
+
+  .private-policy {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
 }
 @media screen and (min-width: 800px) {
   .navbar__menu-mob {
@@ -175,6 +180,15 @@
   .footer_contacts__item {
     margin-bottom: 5px;
   }
+
+  .pay-form {
+    width: 90% !important;
+  }
+}
+@media screen and (min-width: 700px) {
+  .pay-form {
+    width: 40%;
+  }
 }
 @media screen and (max-width: 700px) {
   .filter {
@@ -202,6 +216,10 @@
 
   .user-profile {
     display: none !important;
+  }
+
+  .pay-form {
+    width: 60%;
   }
 }
 @media screen and (max-width: 350px) {
