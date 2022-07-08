@@ -7,7 +7,7 @@ const apiRouter = require('./routers/apiRouter');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000;
 const cookieParser = require('cookie-parser');
-const config = require('./config');;
+const config = require('./config');
 
 app.use(cookieParser());
 app.use(express.static('static'));
