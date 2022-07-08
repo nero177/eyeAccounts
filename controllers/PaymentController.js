@@ -1,6 +1,7 @@
 class PaymentController {
     async success(req, res) {
-        console.log('success')
+        const authorization = JSON.parse(req.headers.authorization);
+        console.log(JSON.parse(authorization.signedMessage))
         res.redirect('/success')
     }
 }

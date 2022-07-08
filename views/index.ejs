@@ -1,7 +1,5 @@
 <%- include('./header'); %>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script async src="https://pay.google.com/gp/p/js/pay.js" defer></script>
-    <script src="../js/generatePayForm.js" defer></script>
     <script src="../js/filter.js" defer></script>
     <section>
         <div class="filter">
@@ -124,4 +122,7 @@
         </div>
 
     </section>
+
+    <script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
+    <script src="../js/generatePayForm.js"></script>
     <%- include('./footer'); %>
