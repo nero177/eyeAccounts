@@ -1,5 +1,4 @@
 const apiService = require('../services/ApiService');
-const md5 = require('md5');
 
 class ApiController {
     async getAccountInfo(req, res) {
@@ -22,7 +21,7 @@ class ApiController {
 
 
             // console.log(sign)
-            return res.json({ description: account.description /*, price: account.price, orderID */ });
+            return res.json({ description: account.description, price: account.price, /* orderID*/ });
         } catch (err) {
             console.log(err)
         }
