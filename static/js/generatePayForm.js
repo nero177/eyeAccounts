@@ -21,6 +21,7 @@ async function generatePayForm(element) {
 
     if (!account.data) return null;
 
+    console.log(parseInt(account.data.price))
     document.querySelector('.qiwi-form input[name=amount]').value = parseInt(account.data.price);
 
     // document.querySelector('.interkassa-form input[name=ik_pm_no]').value = account.data.orderID
