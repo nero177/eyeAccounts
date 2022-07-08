@@ -4,21 +4,19 @@ const config = require('../config');
 
 class ApiController {
     async getAccountInfo(req, res) {
-        const account = await apiService.getAccountInfo(req.query["description"]);
-        const shop = req.query["shop"];
-        const payment = md5(account.description).substr(0, 14);
+        const account = await apiService.getAccountInfo(req.query["description"]); //find acc by description
+        const orderID = md5(account.description).substr(0, 14); //generate order id
 
         const signParameters = [
+            '19327',
             account.price,
-            payment,
-            shop,
+            'Z3>u1e..?{%K=%1',
             'RUB',
-            req.query["description"],
-            config.payokSecret
+            orderID
         ];
 
-        const sign = md5(signParameters.join('|'));
-        return res.json({ description: account.description, price: account.price, payment, sign, currency: 'RUB' });
+        const sign = md5(signParameters.join(':')); //generate sign
+        return res.json({ description: account.description, price: account.price, sign, orderID });
     }
 }
 

@@ -8,7 +8,7 @@ class FileService {
         if (!userAvatar) {
             userAvatarFilename = 'img/default-avatar.jpeg';
         } else {
-            userAvatarFilename = userAvatar.name;
+            userAvatarFilename = `data:image/${userAvatar.img.contentType};base64,${userAvatar.img.data.toString('base64')}`;
         }
 
         return userAvatarFilename;

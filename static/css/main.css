@@ -259,7 +259,7 @@ nav {
   margin: 0 20px;
 }
 .filter-description textarea {
-  margin-top: 5px;
+  margin-top: 10px;
   outline: none;
   border: none;
   font-size: 16px;
@@ -1150,7 +1150,6 @@ footer {
 
 .pay-form {
   position: relative;
-  width: 40%;
   height: 40%;
   background-color: #fff;
   border-radius: 10px;
@@ -1183,4 +1182,21 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.private-policy {
+  -webkit-box-shadow: 1px 1px 20px -15px;
+          box-shadow: 1px 1px 20px -15px;
+  padding: 10px 30px;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: 50px auto;
+}
+.private-policy h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.private-policy p {
+  margin-bottom: 30px;
+  margin-top: 5px;
 }
