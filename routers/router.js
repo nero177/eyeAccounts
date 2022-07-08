@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const urlencoded = bodyParser.urlencoded({ extended: false });
 const { regValidation, loginValidation } = require('../validationArrays');
 const loadAccountsMw = require('../middlewares/loadAccountsMw');
+const paymentController = require('../controllers/PaymentController');
 
 router.get('/', loadAccountsMw, (req, res) => {
     //301 redirects
@@ -22,8 +23,9 @@ router.get('/login', (req, res) => res.render('login'))
 router.get('/logout', userController.logout)
 router.get('/privacy-policy', (req, res) => res.render('privacy-policy'));
 router.get('/return-policy', (req, res) => res.render('return-policy'));
-router.get('/notification', (req, res) => res.json({ message: 'Оплата произведена' }))
-router.get('/success', (req, res) => res.json({ message: 'Оплата произведена успешно' }))
+router.get('/notification', (req, res) => { console.log('get?') })
+router.post('/success', paymentController.success)
+router.get('/success', (req, res) => res.render('successfullPayment'))
 router.get('/failed', (req, res) => res.json({ message: 'Ошибка оплаты' }))
 router.get('*', (req, res) => res.render('404'));
 

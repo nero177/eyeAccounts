@@ -4,6 +4,7 @@
     "description": "",
     "main": "app.js",
     "devDependencies": {
+        "@types/googlepay": "^0.6.4",
         "nodemon": "^2.0.16",
         "sass": "^1.52.1"
     },
@@ -12,7 +13,6 @@
     },
     "keywords": [],
     "scripts": {
-        "prestart": "node getEnv",
         "start": "node app.js",
         "dev": "nodemon app.js"
     },

@@ -1,22 +1,32 @@
 const apiService = require('../services/ApiService');
 const md5 = require('md5');
-const config = require('../config');
 
 class ApiController {
     async getAccountInfo(req, res) {
-        const account = await apiService.getAccountInfo(req.query["description"]); //find acc by description
-        const orderID = md5(account.description).substr(0, 14); //generate order id
+        try {
+            const account = await apiService.getAccountInfo(req.query["description"]); //find acc by description
+            // const orderID = md5(account.description).substr(0, 14); //generate order id
 
-        const signParameters = [
-            '19327',
-            account.price,
-            'Z3>u1e..?{%K=%1',
-            'RUB',
-            orderID
-        ];
+            // let signParameters = [
+            //     account.price,
+            //     '62c7f1d7546739750e0126e5',
+            //     account.description,
+            //     'RUB',
+            //     orderID,
+            // ];
+            // signParameters = signParameters.sort();
+            // signParameters.push('7AknbviidJY8uI7z');
 
-        const sign = md5(signParameters.join(':')); //generate sign
-        return res.json({ description: account.description, price: account.price, sign, orderID });
+            // let signString = signParameters.join(':');
+            // let sign = md5(signString, );
+
+
+            // console.log(sign)
+            return res.json({ description: account.description /*, price: account.price, orderID */ });
+        } catch (err) {
+            console.log(err)
+        }
+
     }
 }
 

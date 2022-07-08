@@ -1,8 +1,8 @@
 <%- include('./header'); %>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script async src="https://pay.google.com/gp/p/js/pay.js" defer></script>
     <script src="../js/generatePayForm.js" defer></script>
     <script src="../js/filter.js" defer></script>
-    <script src="https://pay.fondy.eu/static_common/v1/checkout/ipsp.js"></script>
     <section>
         <div class="filter">
             <div class="filter-clear">
@@ -33,19 +33,16 @@
             </div>
         </div>
     </section>
+
     <div class="pay-form-wrapper hide">
         <div class="pay-form">
             <div class="popup-close"><img src="../img/icons/closebtn.png" alt=""></div>
 
-
-            <!--<form class="payok-payform" action='https://payok.io/pay' method='POST'>
-                <input type='hidden' name='amount' value="">
-                <input type='hidden' name='payment' value="">
-                <input type='hidden' name='shop' value="1935">
-                <input type='hidden' name='currency' value="RUB">
-                <input type='hidden' name='desc' value="">
-                <input type='hidden' name='method' value='card'>
-                <input type='hidden' name='sign' value="">
+            <form class="qiwi-form" action="https://oplata.qiwi.com/create">
+                <input type="hidden" name="publicKey" value="48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPzNJhxp5CYJeaidgfbFzoXuunmyy66TzR9sBk9AkcymWRbhq2wSeGQenDT9TQSeSheA5CDZrVCphmRQLsLAJXPYbMBxdHHSrYsw5dkFik4">
+                <input type="hidden" name="amount" value="">
+                <input type="hidden" name="currency" value="UAH">
+                <input type="hidden" name="comment" value="">
                 <div class="input-label">
                     <label for="mail">Ваш email</label>
                     <input class="input-default text-input" type="email" name="email" value="">
@@ -55,31 +52,18 @@
                     <input class="input-default text-input" type="text" name="name">
                 </div>
                 <input class="input-default submit-input" type='submit' value='Перейти к оплате'><br>
-                
-            </form>-->
-            <form method='get' class="freekassa-payform" action='https://pay.freekassa.ru/'>
-                <input type='hidden' name='m' value='19327'>
-                <input type='hidden' name='oa' value=''>
-                <input type='hidden' name='o' value=''>
-                <input type='hidden' name='s' value=''>
-                <input type='hidden' name='currency' value='RUB'>
-                <input type='hidden' name='i' value='1'>
-                <input type='hidden' name='lang' value='ru'>
-                <div class="input-label">
-                    <label for="mail">Ваш email</label>
-                    <input class="input-default text-input" type="email" name="email" value="">
-                </div>
-                <div class="input-label">
-                    <label for="mail">Ваше имя</label>
-                    <input class="input-default text-input" type="text" name="name">
-                </div>
-                <input type='submit' class="input-default submit-input" name='pay' value='Оплатить'>
-
-                <a href="https://freekassa.ru" target="_blank" rel="noopener noreferrer">
-                    <img src="https://cdn.freekassa.ru/banners/small-white-1.png" title="Прием платежей на сайте для физических лиц и т.д.">
-                </a>
             </form>
 
+            <div id="buy-now"></div>
+            <!-- <form class="interkassa-form" name="payment" method="post" action="https://sci.interkassa.com/" accept-charset="UTF-8">
+                <input type="hidden" name="ik_co_id" value="62c7f1d7546739750e0126e5" />
+                <input type="hidden" name="ik_pm_no" value="" />
+                <input type="hidden" name="ik_am" value="" />
+                <input type="hidden" name="ik_cur" value="rub" />
+                <input type="hidden" name="ik_desc" value="Payment Description" />
+                <input type="hidden" name="ik_sign" value="">
+                <input type="submit" value="Pay">
+            </form> -->
         </div>
     </div>
     <section>

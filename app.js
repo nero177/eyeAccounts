@@ -7,7 +7,7 @@ const apiRouter = require('./routers/apiRouter');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000;
 const cookieParser = require('cookie-parser');
-require('dotenv').config();
+const config = require('./config');;
 
 app.use(cookieParser());
 app.use(express.static('static'));
@@ -20,13 +20,13 @@ app.use('/api', apiRouter);
 app.use('/', router);
 /* /routes */
 
-
 app.set('trust proxy', true)
 
 app.listen(PORT, async() => {
     console.log(`Bound to port ${PORT}`);
+
     try {
-        return await mongoose.connect(process.env.MONGO_URL)
+        return await mongoose.connect(config.mongoDBUrl)
     } catch (err) {
         console.log(err)
     }

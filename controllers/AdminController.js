@@ -4,7 +4,7 @@ class AdminController {
     async addAccount(req, res) {
         const accInfo = {
             social: req.body['social-name'],
-            description: req.body['account-description'],
+            description: req.body['account-description'.replace(/\s{2,}/g, '')].trim(),
             price: req.body.price,
             data: JSON.parse(req.body['accounts-data-hidden']),
             amount: req.body['accounts-count-hidden']
