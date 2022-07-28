@@ -1,5 +1,6 @@
 <%- include('./header'); %>
     <script src="js/userAccountFront.js" defer></script>
+
     <div class="account-info">
         <div class="account-settings hide">
             <div class="account-settings__close">
@@ -9,7 +10,7 @@
                 <div class="account-settings__side-option">Основные</div>
             </div>
             <div class="account-settings__main">
-                <form action="/logout" method="delete">
+                <form action="/auth/logout" method="delete">
                     <input type="submit" class="logout-btn" value="Выйти из аккаунта">
                 </form>
             </div>
@@ -23,29 +24,31 @@
                     </form>
                 </div>
 
-                <img src="<%=userAvatarFilename%>" alt=""></div>
+                <img src="" alt=""></div>
             <div class="account-info__login">
-                <%=userData.login%>
+                <%=user.login%>
             </div>
-            <div class="xp">
+            <!-- <div class="xp">
                 <div class="xp__bar">
-                    <progress id="xp-bar" max="100" value="50"></progress>
+                    <progress id="xp-bar" max="100" value="10"></progress>
                 </div>
                 <div class="xp__ranklvl">
                     <div class="xp__lvl">
-                        <b> lvl 1.</b>
+                        <b> lvl <%=user.lvl%>.</b>
                     </div>
-                    <div class="xp__rank">Начинающий покупатель</div>
+                    <div class="xp__rank">
+                        <%=user.rank%>
+                    </div>
                 </div>
-            </div>
-            <div class="account-info__additional">
+            </div> -->
+            <!-- <div class="account-info__additional">
                 <div class="account-info__additional-item">
                     <b>5 месяцев</b> на сервисе
                 </div>
                 <div class="account-info__additional-item">
                     <b>10</b> успешных сделок
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="account-info__main">
             <div class="account-info__bar">

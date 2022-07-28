@@ -26,25 +26,34 @@
             </div>
             <div class="filter-price">
                 <label for="">Цена</label>
-                <div class="range-num">До 10000 руб</div>
+                <div class="range-num">До 1000 руб</div>
                 <input type="range" min="0" step="5" max="1000" value="1000" id="filter-price-range">
             </div>
         </div>
     </section>
 
+
     <div class="pay-form-wrapper hide">
         <div class="pay-form">
             <div class="popup-close"><img src="../img/icons/closebtn.png" alt=""></div>
 
-
-            <form class="qiwi-form" action="https://oplata.qiwi.com/create">
-                <input type="hidden" name="publicKey" value="48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPzNJhxp5CYJeaidgfbFzoXuunmyy66TzR9sBk9AkcymWRbhq2wSeGQenDT9TQSeSheA5CDZrVCphmRQLsLAJXPYbMBxdHHSrYsw5dkFik4">
-                <input type="hidden" name="amount" value="">
-                <input type="hidden" name="currency" value="RUB">
-                <input type="hidden" name="comment" value="">
-                <input class="input-default submit-input" type='submit' value='Перейти к оплате'>
+            <form class="payok-form" action='https://payok.io/pay' method='POST'>
+                <input type='hidden' name='amount' value="amount">
+                <input type='hidden' name='payment' value="paymentID">
+                <input type='hidden' name='shop' value="1935">
+                <input type='hidden' name='currency' value="RUB">
+                <input type='hidden' name='desc' value="desc">
+                <label for="choosenAmount">Количество</label>
+                <input type="number" class="input-default text-input" name="choosenAmount" min="1" max="2" value="1" required>
+                <label for="email">Ваша почта <abbr class="form-hint" title="Почта на которую придут данные о аккаунте после оплаты">i</abbr></label>
+                <input class="input-default text-input" type='email' name='email' value='' required>
+                <label for="" style="color: red; font-size: 14px; padding-bottom: 10px">* Внимание! Указывайте настоящую почту, на которую должен прийти аккаунт</label>
+                <label for="" style="padding-bottom: 10px" class="total-price">Общая сумма: <span>0</span> руб.</label>
+                <input type='hidden' name='method' value='card'>
+                <input type='hidden' name='sign' value="sign">
+                <input class="input-default submit-input" type='submit' value='Купить'>
             </form>
-            <div id="buy-now"></div>
+
         </div>
     </div>
     <section>
@@ -79,8 +88,6 @@
 
                     <%});
                 %>
-
-
             </div>
         </div>
 
@@ -122,7 +129,12 @@
         </div>
 
     </section>
+    <article class="article">
+        <p>
+            <b>EyeAccount - </b> магазин продающий <b>аккаунты телеграм, инстаграм, фейсбук и других платформ</b>, здесь вы можете купить:
+            <b>аккаунты телеграм</b>, <b>аккаунты телеграм с отлежкой</b>, <b>tdata, portable, 2fa аккаунты</b>, <b>телеграм сессии</b>, <b>телеграм аккаунты pyrogram</b>, <b>nexohub soft</b>
+        </p>
+    </article>
 
-    <script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
     <script src="../js/generatePayForm.js"></script>
     <%- include('./footer'); %>

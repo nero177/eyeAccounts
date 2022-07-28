@@ -1,13 +1,11 @@
 const { Router } = require('express');
 const router = new Router();
-const userController = require('../controllers/UserController');
+const loadAccounts = require('../middlewares/loadAccounts');
+const paymentController = require('../controllers/PaymentController');
 const bodyParser = require('body-parser');
 const urlencoded = bodyParser.urlencoded({ extended: false });
-const { regValidation, loginValidation } = require('../validationArrays');
-const loadAccountsMw = require('../middlewares/loadAccountsMw');
-const paymentController = require('../controllers/PaymentController');
 
-router.get('/', loadAccountsMw, (req, res) => {
+router.get('/', loadAccounts, (req, res) => {
     //301 redirects
     if (req.protocol == 'http' && req.get('host') != 'localhost:3000')
         res.redirect(301, 'https://' + req.get('host'))
@@ -18,18 +16,16 @@ router.get('/', loadAccountsMw, (req, res) => {
     res.render('index', { accounts: res.locals.accounts })
 });
 
-router.get('/reg', (req, res) => res.render('registration'))
-router.get('/login', (req, res) => res.render('login'))
-router.get('/logout', userController.logout)
+
 router.get('/privacy-policy', (req, res) => res.render('privacy-policy'));
 router.get('/return-policy', (req, res) => res.render('return-policy'));
-router.get('/notification', (req, res) => { console.log('get?') })
-router.post('/success', paymentController.success)
-router.get('/success', (req, res) => res.render('successfullPayment'))
 router.get('/failed', (req, res) => res.json({ message: 'Ошибка оплаты' }))
-router.get('*', (req, res) => res.render('404'));
+router.get('/success', paymentController.success);
 
-router.post('/reg', regValidation, urlencoded, userController.registration)
-router.post('/login', loginValidation, urlencoded, userController.login)
+router.post('/success', paymentController.success);
+router.post('/notification', (req, res) => { console.log(req) });
+router.post('/createPayment', urlencoded, paymentController.createPayment);
+
+router.get('*', (req, res) => res.render('404'));
 
 module.exports = router;

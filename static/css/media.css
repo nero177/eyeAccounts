@@ -129,6 +129,10 @@
 .account-item__amount span {
     font-size: 12px !important;
   }
+
+  .action-alert {
+    width: 90% !important;
+  }
 }
 @media screen and (max-width: 500px) {
   .menu-mob {
@@ -183,6 +187,22 @@
 
   .pay-form {
     width: 90% !important;
+  }
+
+  .action-alert {
+    width: 100% !important;
+    border-radius: 0 !important;
+    font-size: 14px;
+    padding: 10px !important;
+  }
+
+  .account-info__sidebar {
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .account-info__main {
+    border-radius: 0 !important;
   }
 }
 @media screen and (min-width: 700px) {

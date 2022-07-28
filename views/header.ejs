@@ -18,14 +18,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EyeAccounts</title>
+    <title>EyeAccounts - аккаунты телеграм и тд</title>
+    <meta name="description" content="EyeAccounts - аккаунты телеграм, фейсбук, инстаграм и тд. (TDATA, сессии, отлежка, рассылка, спам, накрутка)">
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/utils.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="../js/front.js" defer></script>
-    <meta name="interkassa-verification" content="8394bf10eee8854b50dbce51a2b6f338" />
+
     <meta name="google-site-verification" content="zDoMH25ZwhflY6g2YGiVP4bVGuDiAajlaKaaic-97Ww" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV9N96HXE" defer></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-QKV9N96HXE');
+    </script>
 </head>
 
 <body>
@@ -42,7 +54,7 @@
 
                 </div>
                 <div class="user-profile">
-                    <a href="/userAccount" target="_blank">
+                    <a href="/userAccount">
                         <img class="user-img" src="../img/default-avatar.jpeg" />
                     </a>
 
@@ -55,9 +67,7 @@
                         Вернуться
                     </div>
                     <a href="/">Главная</a>
-                    <a href="#accounts">Отзывы</a>
                     <a href="/userAccount">Личный кабинет</a>
-                    <a href="#">О нас</a>
                 </div>
             </div>
             </div>

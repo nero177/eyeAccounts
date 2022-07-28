@@ -1,8 +1,7 @@
 <%- include('./header'); %>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LfZUbcgAAAAAE9GM7z7fYYNO0nsXczoI3cFaJir"></script>
 
     <section class="form-section">
-        <form action="reg" method="post">
+        <form action="auth/reg" method="post">
 
             <div class="form-section__inputs">
                 <label for="">Электронная почта</label>
@@ -19,7 +18,7 @@
                         <input class="input-default text-input" type="password" name="password" autocomplete="off" minlength="8">
                         <input class="input-default submit-input" type="submit" value="Регистрация">
             </div>
-            <a href="/login">Войти</a>
+            <a href="/auth/login">Войти</a>
         </form>
     </section>
     <%- include('./footer'); %>

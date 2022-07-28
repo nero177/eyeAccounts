@@ -409,7 +409,8 @@ nav {
   font-size: 14px;
 }
 
-.account-item__buy {
+.account-item__buy,
+.purple-btn {
   background: -webkit-gradient(linear, left bottom, left top, from(#4700c5), to(#8104c0));
   background: linear-gradient(360deg, #4700c5, #8104c0);
   border-radius: 20px;
@@ -420,10 +421,12 @@ nav {
   cursor: pointer;
   color: #fff;
 }
-.account-item__buy b {
+.account-item__buy b,
+.purple-btn b {
   margin-left: 5px;
 }
-.account-item__buy:hover {
+.account-item__buy:hover,
+.purple-btn:hover {
   background: -webkit-gradient(linear, left bottom, left top, from(#5203da), to(#9204da));
   background: linear-gradient(360deg, #5203da, #9204da);
 }
@@ -674,7 +677,7 @@ footer {
   width: 70%;
   min-height: 500px;
   border-radius: 15px;
-  margin: 50px auto;
+  margin: 10px auto;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 30% 70%;
@@ -688,7 +691,7 @@ footer {
   padding: 10px 16px;
   background: linear-gradient(45deg, #512288, #340d58);
   color: #fff;
-  margin: 15px 8px;
+  margin: 15px 7px 15px 0;
 }
 
 .account-info__avatar {
@@ -1150,7 +1153,10 @@ footer {
 
 .pay-form {
   position: relative;
-  height: 40%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 20px 0;
   background-color: #fff;
   border-radius: 10px;
   display: -webkit-box;
@@ -1166,6 +1172,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-width: 450px;
 }
 
 .popup-close {
@@ -1188,19 +1195,71 @@ footer {
           flex-direction: column;
 }
 
-.private-policy {
+.article {
   -webkit-box-shadow: 1px 1px 20px -15px;
           box-shadow: 1px 1px 20px -15px;
   padding: 10px 30px;
   border-radius: 10px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 50px auto;
 }
-.private-policy h2 {
+.article h2 {
   text-align: center;
   margin-bottom: 20px;
 }
-.private-policy p {
+.article p {
   margin-bottom: 30px;
   margin-top: 5px;
+}
+
+.payok-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+}
+
+input[type=number] {
+  max-width: 70px;
+}
+
+.form-hint {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 14px;
+  background-color: darkgray;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+.action-alert {
+  background-image: url("../img/TheEnd.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding: 10px 50px;
+  border-radius: 15px;
+  max-width: 850px;
+}
+.action-alert a {
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 10px;
 }

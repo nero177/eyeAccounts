@@ -1,25 +1,24 @@
 const tokenService = require('../services/TokenService')
-const fileService = require('../services/FileService');
 
 module.exports = async function(req, res, next) {
     try {
-        const token = req.cookies.token;
+        const token = req.cookies.userToken;
 
         if (!token) {
             next('User are not authorized [auth]');
-            return res.redirect('/login')
+            return res.redirect('/auth/login')
         }
 
         const decodedData = tokenService.validateToken(token);
 
         if (!decodedData) {
             next('Invalid token');
-            res.redirect('/login')
+            res.redirect('/auth/login')
         }
 
         res.locals.userData = decodedData;
         next();
     } catch (err) {
-        return res.redirect('/login')
+        return res.redirect('/auth/login')
     }
 }

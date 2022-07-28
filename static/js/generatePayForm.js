@@ -8,171 +8,59 @@ document.querySelectorAll('.account-item__buy').forEach(button => {
     }
 })
 
-let account;
+let accountDescription;
 
 async function generatePayForm(element) {
-    const accountDescription = element.parentElement.parentElement.querySelector('.account-item__description').innerHTML.trim();
-
-    account = await axios.get(`${location.href}api/getAccount`, { //get query to accounts api 
-        params: {
-            description: accountDescription,
-        }
-    });
+    accountDescription = element.parentElement.parentElement.querySelector('.account-item__description').innerHTML.trim();
+    const { account, payment } = await accountAndPaymentQueries(accountDescription)
 
     if (!account.data) return null;
 
-    document.querySelector('.qiwi-form input[name=amount]').value = parseInt(account.data.price);
-    // document.querySelector('.interkassa-form input[name=ik_pm_no]').value = account.data.orderID
-    // document.querySelector('.interkassa-form input[name=ik_am]').value = parseInt(account.data.price);
-    // document.querySelector('.interkassa-form input[name=ik_desc]').value = accountDescription;
-    // document.querySelector('.interkassa-form input[name=ik_sign]').value = account.data.sign;
+    s('.payok-form input[name=choosenAmount]').setAttribute('max', account.data.amount)
+    s('.total-price > span').innerHTML = payment.data.amount;
+    s('.payok-form input[name=amount]').value = account.data.price;
+    s('.payok-form input[name=payment]').value = payment.data.paymentId;
+    s('.payok-form input[name=desc]').value = account.data.description;
+    s('.payok-form input[name=sign]').value = payment.data.sign;
+
+    document.cookie = `count=1;`;
 }
 
-const baseRequest = {
-    apiVersion: 2,
-    apiVersionMinor: 0
-};
+s('.payok-form input[name=choosenAmount]').oninput = async() => {
+    let count = s('.payok-form input[name=choosenAmount]').value;
+    let maxCount = parseInt(s('.payok-form input[name=choosenAmount]').getAttribute('max'));
 
-const allowedCardNetworks = ["MASTERCARD", "MIR", "VISA"];
-const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+    if (!count) count = 1;
+    if (count > maxCount) count = maxCount;
 
-const tokenizationSpecification = {
-    type: 'PAYMENT_GATEWAY',
-    parameters: {
-        'gateway': 'aciworldwide',
-        'gatewayMerchantId': 'BCR2DN4T7THMRXZW'
-    }
-};
+    const { payment } = await accountAndPaymentQueries(accountDescription, count)
 
-const baseCardPaymentMethod = {
-    type: 'CARD',
-    parameters: {
-        allowedAuthMethods: allowedCardAuthMethods,
-        allowedCardNetworks: allowedCardNetworks
-    }
-};
+    s('.payok-form input[name=payment]').value = payment.data.paymentId;
+    s('.payok-form input[name=sign]').value = payment.data.sign;
+    s('.payok-form input[name=amount]').value = payment.data.amount;
+    s('.total-price > span').innerHTML = payment.data.amount;
 
-const cardPaymentMethod = Object.assign({},
-    baseCardPaymentMethod, {
-        tokenizationSpecification: tokenizationSpecification
-    }
-);
+    document.cookie = `count=${count}`;
+}
 
-let paymentsClient = null;
-
-function getGoogleIsReadyToPayRequest() {
-    return Object.assign({},
-        baseRequest, {
-            allowedPaymentMethods: [baseCardPaymentMethod]
+async function accountAndPaymentQueries(description, count = 1) {
+    const account = await axios.get(`https://eyeaccounts.store/api/getAccount`, { //get query to accounts api 
+        params: {
+            description: description,
         }
-    );
-}
-
-function getGooglePaymentDataRequest() {
-    const paymentDataRequest = Object.assign({}, baseRequest);
-    paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
-    paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
-    paymentDataRequest.merchantInfo = {
-        merchantId: 'BCR2DN4T7THMRXZW',
-        merchantName: 'EyeAccounts'
-    };
-    return paymentDataRequest;
-}
-
-function getGooglePaymentsClient() {
-    if (paymentsClient === null) {
-        paymentsClient = new google.payments.api.PaymentsClient({ environment: 'TEST' });
-    }
-    return paymentsClient;
-}
-
-function onGooglePayLoaded() {
-    const paymentsClient = getGooglePaymentsClient();
-    paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
-        .then(function(response) {
-            if (response.result) {
-                addGooglePayButton();
-            }
-        })
-        .catch(function(err) {
-            // show error in developer console for debugging
-            console.error(err);
-        });
-}
-
-
-function addGooglePayButton() {
-    const paymentsClient = getGooglePaymentsClient();
-    const button =
-        paymentsClient.createButton({
-            onClick: onGooglePaymentButtonClicked,
-            allowedPaymentMethods: [baseCardPaymentMethod]
-        });
-
-    document.getElementById('buy-now').innerHTML = '';
-    document.getElementById('buy-now').appendChild(button);
-}
-
-
-function getGoogleTransactionInfo() {
-    return {
-        countryCode: 'RU',
-        currencyCode: 'RUB',
-        totalPriceStatus: 'FINAL',
-        // set to cart total
-        totalPrice: account.data.price
-    };
-}
-
-function prefetchGooglePaymentData() {
-    const paymentDataRequest = getGooglePaymentDataRequest();
-    // transactionInfo must be set but does not affect cache
-    paymentDataRequest.transactionInfo = {
-        totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
-        currencyCode: 'RUB'
-    };
-    const paymentsClient = getGooglePaymentsClient();
-    paymentsClient.prefetchPaymentData(paymentDataRequest);
-}
-
-
-function onGooglePaymentButtonClicked() {
-    const paymentDataRequest = getGooglePaymentDataRequest();
-    paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
-
-    const paymentsClient = getGooglePaymentsClient();
-    paymentsClient.loadPaymentData(paymentDataRequest)
-        .then(function(paymentData) {
-            // handle the response
-            processPayment(paymentData);
-        })
-        .catch(function(err) {
-            // show error in developer console for debugging
-            console.error(err);
-        });
-}
-
-function processPayment(paymentData) {
-    // show returned data in developer console for debugging
-    console.log(paymentData);
-    // @todo pass payment token to your gateway to process payment
-    paymentToken = paymentData.paymentMethodData.tokenizationData.token;
-
-    fetch('/success', {
-        method: 'POST',
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': paymentToken
-        },
-        body: paymentData
-    }).then(response => {
-        if (response.status != 200)
-            return null;
-
-        window.location = '/success'
     });
 
+    const payment = await axios.post(`https://eyeaccounts.store/createPayment`, { //post query to createPayment
+        description: description,
+        count: count
+    });
+
+    return { account, payment }
+}
+
+/*temporary*/
+
+document.querySelector('.input-default[type=email]').oninput = (e) => {
+    document.cookie = `email=${document.querySelector('.input-default[type=email]').value};`;
 
 }

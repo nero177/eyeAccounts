@@ -1,9 +1,7 @@
-const mongoose = require('mongoose');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const UserDto = require('../dtos/UserDto');
 const tokenService = require('./TokenService');
-const fileService = require('./FileService');
 
 class UserService {
     async registration(login, email, password) {
@@ -40,7 +38,6 @@ class UserService {
     }
     async login(login, password) {
         try {
-
             const user = await User.findOne({ login });
             let error;
 
@@ -74,9 +71,11 @@ class UserService {
             return null;
         }
     }
-    async getUserAvatar(userID) {
-        const userAvatar = await fileService.loadAvatar(userID)
-        return userAvatar;
+
+    async getUserInfo(id) { //data (email, login or id)
+        const user = await User.findOne({ id: id });
+        const userDTO = new UserDto(user);
+        return { userDTO }
     }
 }
 

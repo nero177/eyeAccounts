@@ -5,7 +5,7 @@ const Account = new Schema({
     description: { type: String, required: true },
     price: { type: String, required: true },
     data: [{ type: String, required: true }],
-    amount: { type: Number, required: true }
+    amount: { type: Number, required: true },
 })
 
 module.exports = model('Account', Account)

@@ -1,19 +1,20 @@
 const jwt = require('jsonwebtoken');
-const config = require('../config.js');
+require('dotenv').config();
 const Token = require('../models/Token');
 const tokenModel = require('../models/Token');
 
 class TokenService {
     generateToken(payload) {
-        const token = jwt.sign(payload, config.jwtAccess, { expiresIn: '1h' });
+        const token = jwt.sign(payload, process.env.JWT_ACCESS, { expiresIn: '1h' });
         return token;
     }
 
     validateToken(token) {
         try {
-            const userData = jwt.verify(token, config.jwtAccess);
+            const userData = jwt.verify(token, process.env.JWT_ACCESS);
             return userData;
         } catch (e) {
+            console.log(e)
             return null;
         }
     }

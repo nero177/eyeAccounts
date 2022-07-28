@@ -22,8 +22,8 @@ class UserController {
             }
         }
 
-        res.cookie('token', userData.token, { maxAge: 14 * 24 * 60 * 60 * 1000, httpOnly: true }); //set cookie for 14 days
-        res.redirect('/login');
+        res.cookie('userToken', userData.token, { maxAge: 14 * 24 * 60 * 60 * 1000, httpOnly: true }); //set cookie for 14 days
+        res.redirect('/auth/login');
     }
 
     async login(req, res) {
@@ -45,18 +45,18 @@ class UserController {
             }
         }
 
-        res.cookie('token', userData.token, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true });
+        res.cookie('userToken', userData.token, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true });
         res.redirect('/userAccount');
     }
     async logout(req, res) {
-        const logoutResponse = await userService.logout(req.cookies.token);
+        const logoutResponse = await userService.logout(req.cookies.userToken);
 
         if (!logoutResponse) {
             return res.status(401).json({ message: 'user are not authorized [logout]' })
         }
 
-        res.clearCookie('token');
-        res.redirect('/login')
+        res.clearCookie('userToken');
+        res.redirect('/auth/login')
     }
 
     async getUserAvatar(req, res) {

@@ -1,6 +1,7 @@
 try {
     s('.menu-mob_close').onclick = () => {
         s('.menu-mob').hide();
+
     }
 
     s('.navbar__menu-mob img').onclick = () => {
@@ -20,6 +21,7 @@ try {
 
     document.querySelector('.popup-close').onclick = () => {
         document.querySelector('.pay-form-wrapper').fadeHide(0.3);
+        s('.payok-form input[name=choosenAmount]').value = 1;
     }
 
 } catch (e) {

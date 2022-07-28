@@ -4,7 +4,7 @@ class ApiService {
     async getAccountInfo(accountDescription) {
         try {
             const account = await Account.findOne({ description: accountDescription });
-            return account;
+            return { price: account.price, description: account.description, amount: account.amount };
         } catch (err) {
             return err;
         }

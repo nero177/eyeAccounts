@@ -6,6 +6,7 @@ class AdminService {
             const account = await accountModel.create({...accountInfo });
             return account;
         } catch (err) {
+            console.log(err)
             return null;
         }
     }
